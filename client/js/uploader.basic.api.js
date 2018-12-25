@@ -2,6 +2,14 @@
 /**
  * Defines the public API for FineUploaderBasic mode.
  */
+
+// *shh*  added feature to fine uploader to handle deleting
+// resized images like thumbnails
+function get_child_uuid(_uuid) { // _uuid is parent uuid
+    _uuid = String(_uuid);
+    return (_uuid in qq.uuid_pivot) ? qq.uuid_pivot[_uuid] : null;
+}
+
 (function() {
     "use strict";
 
@@ -158,6 +166,13 @@
         },
 
         deleteFile: function(id) {
+            //*shh* get uuid
+            var __uuid = this._uploadData.retrieve({
+                id: id
+            }).uuid;
+            // get
+            qq._buffer_child_id = get_child_uuid(__uuid);
+
             return this._onSubmitDelete(id);
         },
 
@@ -1600,6 +1615,11 @@
             }
 
             if (this._isDeletePossible()) {
+                //  *shh*
+                this.setDeleteFileParams({
+                    'child_id': qq._buffer_child_id
+                }, id);//qq._buffer_child_id
+
                 this._handleCheckedCallback({
                     name: "onSubmitDelete",
                     callback: qq.bind(this._options.callbacks.onSubmitDelete, this, id),

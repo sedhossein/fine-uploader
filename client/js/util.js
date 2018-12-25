@@ -183,6 +183,14 @@ var qq = function(element) {
 
 (function() {
     "use strict";
+    //*shh* :
+    // the buffer for save child or resized images
+    //( you can change this array structure for more scaled sizes )
+    // Current Structure : ['parent_uuid':'child_uuid(scaled_uuid)']
+    qq._buffer_child_id = 0;
+
+    // *shh* added for handle the delete actions in childes and scaled images
+    qq.uuid_pivot = new Array();
 
     qq.canvasToBlob = function(canvas, mime, quality) {
         return qq.dataUriToBlob(canvas.toDataURL(mime, quality));

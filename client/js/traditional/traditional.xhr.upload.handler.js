@@ -278,6 +278,15 @@ qq.traditional.XhrUploadHandler = function(spec, proxy) {
                 xhr: xhr
             });
 
+            // todo: here is location of action
+            if ( customParams.hasOwnProperty('qqparentuuid') )
+            {
+                //*shh*
+                // save the thumbnail image in pivot array for handling delete mood
+                // [orginal image uuid(parent)] : thumbnail uuid
+                qq.uuid_pivot[customParams['qqparentuuid']] = customParams['qquuid'] ; // parent pic : child pic(thumbnail)
+            }
+
             setUploadHeaders({
                 id: id,
                 xhr: xhr
