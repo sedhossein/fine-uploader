@@ -84,12 +84,11 @@ To pull down the project & build dependencies:
 
 To build, run the tests & linter: `npm test` (you'll need Firefox installed locally).
 
-#### Commiting new code and changes
+#### I Am Fixed Issue #1478 And Adding To This Fork
 
-- Follow the [Angular.js commit guidelines][angular-commit].
-- Follow the [Git Flow][git-flow] branching strategy.
+- Fixed [Issue][issue]
+- Follow Me On  [Twitter][twitter].
 
 
-[angular-commit]: https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit
-[git-flow]: http://nvie.com/posts/a-successful-git-branching-model/
-[issues]: https://github.com/FineUploader/fine-uploader/issues
+[twitter]: https://twitter.com/sedhossein_ir
+[issue]: https://github.com/FineUploader/fine-uploader/issues/1478
